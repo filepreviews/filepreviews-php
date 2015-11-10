@@ -20,7 +20,7 @@ $fp = new FilePreviews\FilePreviews([
 $response = $fp->generate($url);
 print_r($response);
 
-$response = $fp->generate($response->id);
+$response = $fp->retrieve($response->id);
 print_r($response);
 ```
 

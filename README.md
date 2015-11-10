@@ -40,7 +40,7 @@ $options = [
   ],
   'format' => 'jpg',
   'pages' => '1',
-  'metadata': ['exif', 'ocr', 'psd'],
+  'metadata' => ['exif', 'ocr', 'psd'],
   'data' => ['foo' => 'bar']
 ];
 

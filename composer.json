@@ -1,0 +1,34 @@
+{
+  "name": "blimp/filepreviews",
+  "description": "PHP client library for FilePreviews.io",
+  "type": "library",
+  "keywords": [
+    "file",
+    "previews",
+    "thumbnails",
+    "metadata",
+    "exif",
+    "ocr"
+  ],
+  "homepage": "http://filepreviews.io",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "José Padilla",
+      "email": "jpadilla@blimp.io",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@blimp.io",
+    "source": "https://github.com/getblimp/filepreviews-php"
+  },
+  "require": {
+    "rmccue/requests": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "FilePreviews\\": "src/FilePreviews/"
+    }
+  }
+}

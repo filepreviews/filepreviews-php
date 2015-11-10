@@ -7,13 +7,25 @@ require '../vendor/autoload.php';
 class FilePreviews {
     const VERSION = '1.0.0';
     const API_URL = 'https://api.filepreviews.io/v2/';
+    const API_KEY_ENV_NAME = 'FILEPREVIEWS_API_KEY';
+    const API_SECRET_ENV_NAME = 'FILEPREVIEWS_API_SECRET';
 
     public function __construct(array $config = [])
     {
         $config = array_merge([
+            'api_key' => getenv(static::API_KEY_ENV_NAME),
+            'api_secret' => getenv(static::API_SECRET_ENV_NAME),
             'api_url' => static::API_URL,
             'debug' => false,
         ], $config);
+
+        if (!$config['api_key']) {
+            throw new \Exception('Required "api_key" key not supplied.');
+        }
+
+        if (!$config['api_secret']) {
+            throw new \Exception('Required "api_secret" key not supplied.');
+        }
 
         $this->client = new FilePreviewsClient(
             $config['api_key'],

@@ -1,5 +1,5 @@
 {
-  "name": "blimp/filepreviews",
+  "name": "filepreviews/filepreviews",
   "description": "PHP client library for FilePreviews.io",
   "type": "library",
   "keywords": [

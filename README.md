@@ -6,7 +6,7 @@ PHP client library for the [FilePreviews.io](http://filepreviews.io) service. Ge
 ## Installation
 
 ```
-composer require blimp/filepreviews
+composer require filepreviews/filepreviews
 ```
 
 ### Example code

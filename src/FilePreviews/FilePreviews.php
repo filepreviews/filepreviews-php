@@ -2,8 +2,6 @@
 
 namespace FilePreviews;
 
-require '../vendor/autoload.php';
-
 class FilePreviews {
     const VERSION = '1.0.0';
     const API_URL = 'https://api.filepreviews.io/v2/';

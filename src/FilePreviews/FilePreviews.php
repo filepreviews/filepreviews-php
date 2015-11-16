@@ -3,7 +3,7 @@
 namespace FilePreviews;
 
 class FilePreviews {
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.1';
     const API_URL = 'https://api.filepreviews.io/v2/';
     const API_KEY_ENV_NAME = 'FILEPREVIEWS_API_KEY';
     const API_SECRET_ENV_NAME = 'FILEPREVIEWS_API_SECRET';
@@ -14,7 +14,7 @@ class FilePreviews {
             'api_key' => getenv(static::API_KEY_ENV_NAME),
             'api_secret' => getenv(static::API_SECRET_ENV_NAME),
             'api_url' => static::API_URL,
-            'debug' => false,
+            'version' => static::VERSION
         ], $config);
 
         if (!$config['api_key']) {
@@ -25,11 +25,7 @@ class FilePreviews {
             throw new \Exception('Required "api_secret" key not supplied.');
         }
 
-        $this->client = new FilePreviewsClient(
-            $config['api_key'],
-            $config['api_secret'],
-            $config['api_url']
-        );
+        $this->client = new FilePreviewsClient($config);
     }
 
     public function generate($url, array $params = [])

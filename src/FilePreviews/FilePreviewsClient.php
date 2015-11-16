@@ -5,12 +5,28 @@ namespace FilePreviews;
 class FilePreviewsClient {
     protected $session;
 
-    public function __construct($api_key, $api_secret, $base_url)
+    public function __construct(array $config = [])
     {
-        $this->session = new \Requests_Session($base_url);
-        $this->session->headers['Accept'] = 'application/json';
-        $this->session->headers['Content-Type'] = 'application/json';
-        $this->session->auth = [$api_key, $api_secret];
+        $this->session = new \Requests_Session($config['api_url']);
+        $this->session->auth = [
+            $config['api_key'], $config['api_secret']
+        ];
+
+        $client_ua = [
+            'lang' => 'php',
+            'publisher' => 'filepreviews',
+            'bindings_version' => $config['version'],
+            'lang_version' => phpversion(),
+            'platform' => PHP_OS,
+            'uname' => php_uname(),
+        ];
+
+        $this->session->headers = [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+            'X-FilePreviews-Client-User-Agent' => json_encode($client_ua),
+            'User-Agent' => 'FilePreviews/v2 PhpBindings/' . $config['version']
+        ];
     }
 
     public function get($path)

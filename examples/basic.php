@@ -10,7 +10,7 @@ $filepreviews = new FilePreviews\FilePreviews();
 $url = 'http://www.getblimp.com/images/screenshot1.png';
 
 $options = [
-  'sizes' => [
+  'size' => [
     'width' => 250,
     'height' => 250
   ],

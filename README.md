@@ -34,7 +34,7 @@ $fp = new FilePreviews\FilePreviews([
 ]);
 
 $options = [
-  'sizes' => [
+  'size' => [
     'width' => 250,
     'height' => 250
   ],
